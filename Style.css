@@ -1,4 +1,30 @@
 /* ---------- BASE RESET ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Universal container safety */
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.service-box {
+  min-height: 220px;
+}
+
+
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root{
   --bg-1: #040406;
@@ -405,35 +431,7 @@ html, body{
   .brand-sub{ display:none; }
 }
 
-/* GLOBAL BOX HOVER OVERRIDE */
-div[class*="box"],
-div[class*="card"],
-div[class*="service"],
-div[class*="item"],
-div[class*="feature"],
-div[class*="block"] {
-    transition: 0.28s ease-in-out !important;
-}
-div[class*="box"]:hover,
-div[class*="card"]:hover,
-div[class*="service"]:hover,
-div[class*="item"]:hover,
-div[class*="feature"]:hover,
-div[class*="block"]:hover {
-    background: rgba(122, 97, 255, 0.15) !important;
-    border: 1px solid #9d86ff !important;
-    box-shadow: 0 0 20px #7a61ff !important;
-    transform: translateY(-4px);
-    cursor: pointer;
-}
-div[class*="box"]:hover *,
-div[class*="card"]:hover *,
-div[class*="service"]:hover *,
-div[class*="item"]:hover *,
-div[class*="feature"]:hover *,
-div[class*="block"]:hover * {
-    color: #c8b8ff !important;
-}
+
 
 /* FOOTER CONTACT + MAP */
 .footer-contact {
@@ -547,6 +545,36 @@ div[class*="block"]:hover * {
 }
 
 /* How We Work + Contact Details */
+.contact-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: clamp(40px, 6vw, 80px) 20px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 6vw, 60px);
+}
+
+/* FORM + MAP */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(24px, 4vw, 40px);
+  align-items: stretch;
+}
+
+/* FORM */
+.contact-form-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* MAP FIX */
+.map-wrapper iframe {
+  min-height: 420px;
+  height: 100%;
+}
+
 .info-section {
     display: flex;
     gap: 40px;
@@ -578,6 +606,13 @@ div[class*="block"]:hover * {
     margin-bottom: 8px;
 }
 
+.info-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(24px, 4vw, 40px);
+}
+
+
 /* Responsive */
 @media (max-width: 840px) {
     .contact-grid {
@@ -597,3 +632,62 @@ div[class*="block"]:hover * {
         flex-direction: column;
     }
 }
+@media (max-width: 840px) {
+  .nav {
+    position: absolute;
+    right: 16px;
+    top: 70px;
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* WhatsApp Floating Icon */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  z-index: 9999;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  font-size: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.6);
+}
+
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 35px rgba(37,211,102,0.6);
+}
+
+/* Mobile safe tap area */
+@media (max-width: 600px) {
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    font-size: 28px;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
