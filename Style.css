@@ -690,4 +690,60 @@ html, body{
     bottom: 16px;
   }
 }
+/* ---------------- MOBILE FRIENDLY FIX ---------------- */
+
+/* Contact Section Grid */
+@media (max-width: 768px) {
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .contact-form-wrap,
+  .map-wrapper,
+  .how-we-work {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  /* Map mobile height */
+  .map-wrapper iframe {
+    min-height: 260px;
+  }
+
+  /* How we work list */
+  .how-we-work p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Contact Details strip */
+  .contact-details p {
+    font-size: 14px;
+  }
+
+  /* WhatsApp floating button */
+  .whatsapp-float {
+    right: 12px;   /* right corner */
+    bottom: 80px;  /* footer se upar */
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+  }
+
+  /* Input fields touch-friendly */
+  .contact-form-wrap input,
+  .contact-form-wrap textarea {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+
+  .contact-form-wrap button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
 
