@@ -650,7 +650,7 @@ html, body{
 .whatsapp-float {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 35px;
   left: auto;
   z-index: 9999;
 
@@ -832,4 +832,5 @@ html, body{
     bottom: 80px;
   }
 }
+
 
