@@ -934,9 +934,91 @@ html, body{
   text-align: center;
   color: #fff;
 }
+/* Mobile Menu fix (Safe Addition) */
+@media (max-width: 840px) {
+  .nav.open {
+    display: flex !important;
+    flex-direction: column;
+    z-index: 9999;
+    background: #0b1226; /* Aapki theme ka dark color */
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+}
 
+/* Thank You Popup Layering */
+.thankyou-popup {
+  z-index: 10000; /* Isse popup hamesha sabse upar rahega */
+}
+/* ================= RESPONSIVE SYSTEM ================= */
 
+/* 1. TABLET VIEW (Max 1024px) - Laptop se chhota, Tablet se bada */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr; /* Image niche, text upar */
+        text-align: center;
+        gap: 40px;
+    }
+    .hero-right { order: -1; } /* Image ko sabse upar dikhane ke liye */
+    .hero-art { width: 350px; margin: 0 auto; }
+    .hero-search { max-width: 600px; margin: 0 auto 20px; }
+    
+    .about-section, .services-section, .contact-section {
+        padding: 60px 40px !important; /* Side margin kam ki gayi */
+    }
+}
 
+/* 2. MOBILE VIEW (Max 768px) - Sabhi Smartphones ke liye */
+@media (max-width: 768px) {
+    /* Header Fix */
+    .nav {
+        display: none; /* Default mein menu chhupa rahega */
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 250px;
+        background: #0b1226;
+        flex-direction: column;
+        padding: 20px;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .nav.open { display: flex; } /* JavaScript se khulega */
+    .nav-toggle { display: block; } /* ☰ Button dikhega */
+
+    /* Typography */
+    .hero-title { font-size: 32px; }
+    .section-title { font-size: 28px; }
+
+    /* Layout Grids (Sab 1 column mein ho jayenge) */
+    .services-container, .contact-grid, .info-section {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* Map Fix */
+    .map-wrapper iframe {
+        min-height: 250px;
+    }
+
+    /* Form Inputs (Ungli se touch karne ke liye bada size) */
+    input, textarea, .btn {
+        font-size: 16px !important;
+        padding: 14px !important;
+    }
+}
+
+/* 3. SMALL MOBILE (Max 480px) */
+@media (max-width: 480px) {
+    .hero-title { font-size: 28px; }
+    .brand-name { font-size: 14px; }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+    }
+}
 
 
 
