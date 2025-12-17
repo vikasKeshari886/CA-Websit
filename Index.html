@@ -330,30 +330,9 @@
     }
   </script>
 
-  <script>
-const form = document.getElementById('contactForm');
-const popup = document.getElementById('thankyou-popup');
-const closePopup = document.getElementById('close-popup');
-
-form.addEventListener('submit', function(e) {
-  e.preventDefault(); // Prevent page reload
-  // Check if form is valid
-  if(form.checkValidity()) {
-    popup.style.display = 'grid'; // Show popup
-    form.reset(); // Reset form fields
-  } else {
-    form.reportValidity(); // Show browser required alert
-  }
-});
-
-closePopup.addEventListener('click', function(){
-  popup.style.display = 'none'; // Close popup
-});
-</script>
-
-
 </body>
 </html>
+
 
 
 
