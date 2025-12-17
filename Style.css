@@ -832,5 +832,57 @@ html, body{
     bottom: 80px;
   }
 }
+/* ================= THANK YOU POPUP (NO JS) ================= */
+
+.thankyou-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 9999;
+}
+
+.thankyou-box {
+  background: linear-gradient(180deg, #0b1226, #040406);
+  padding: 30px 24px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 360px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.thankyou-box h3 {
+  color: #13b0ff;
+  margin-bottom: 10px;
+}
+
+.thankyou-box p {
+  color: #bfc7d6;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.popup-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #13b0ff, #7b5cff);
+  padding: 10px 18px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Show popup when checkbox checked */
+#popup-toggle:checked ~ .thankyou-popup {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
 
