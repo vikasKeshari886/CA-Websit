@@ -183,49 +183,30 @@
       </div>
     </section>
 
-    <section class="contact-section" id="contact">
+<section class="contact-section" id="contact">
+  <input type="checkbox" id="popup-toggle" hidden>
 
   <div class="contact-grid">
-   <!-- Hidden checkbox -->
-<input type="checkbox" id="popup-toggle" hidden>
+   <form id="gform" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="cc654055-c82a-4cff-9d90-3cdf8f666e4b">
 
-<!-- Form -->
-<!-- Hidden checkbox -->
-<input type="checkbox" id="popup-toggle" hidden>
-
-<!-- FORM START -->
-<form action="#" method="post">
-
-<!-- Hidden checkbox for popup control -->
-<input type="checkbox" id="popup-toggle" hidden>
-
-<!-- FORM START -->
-<form action="#" method="post">
-  <div class="contact-form-wrap">
-    <h2>Send a Query</h2>
-    <p>Fill in your details and we will get back to you.</p>
-
-    <input type="text" name="name" placeholder="Full Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Your Query" required></textarea>
-
-    <!-- Submit button -->
-    <!-- Checkbox toggle se popup open karenge -->
-    <label for="popup-toggle" class="btn primary">Send Message</label>
-  </div>
+    <div class="contact-form-wrap">
+        <h2>Send a Query</h2>
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <textarea name="message" placeholder="Your Query" required></textarea>
+        <button type="submit" class="btn primary">Send Message</button>
+    </div>
 </form>
-<!-- FORM END -->
+     
 
-<!-- Thank You Popup -->
-<div class="thankyou-popup">
-  <div class="thankyou-box">
-    <h3>Thank You 🙌</h3>
-    <p>Your message has been sent successfully.<br>We will contact you soon.</p>
-    <label for="popup-toggle" class="popup-btn">OK</label>
-  </div>
-</div>
-
-
+    <div class="thankyou-popup">
+      <div class="thankyou-box">
+        <h3>Thank You 🙌</h3>
+        <p>Aapka message humein mil gaya hai.<br>Hum jald hi Gmail par sampark karenge.</p>
+        <label for="popup-toggle" class="popup-btn" style="cursor:pointer">OK</label>
+      </div>
+    </div>
 
     <!-- Map -->
     <div class="map-wrapper">
@@ -256,6 +237,7 @@
   </div>
 </section>
 
+
   </main>
 
   <!-- FOOTER -->
@@ -269,42 +251,54 @@
   </footer>
 
   <script>
-    // insert current year
-    document.getElementById('year').textContent = new Date().getFullYear();
+   const form = document.getElementById('gform');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-    // Mobile nav toggle
-    const navToggle = document.getElementById('navToggle');
-    const nav = document.getElementById('nav');
-    navToggle.addEventListener('click', ()=> {
-      nav.classList.toggle('open');
+    // Button text change karein loading dikhane ke liye
+    const btn = form.querySelector('button');
+    btn.innerHTML = "Sending...";
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: json
+    })
+    .then(async (response) => {
+        if (response.status == 200) {
+            document.getElementById('popup-toggle').checked = true; // Popup dikhayega
+            form.reset();
+        } else {
+            alert("Kuch galat hua, dubara koshish karein.");
+        }
+    })
+    .catch(error => {
+        console.log(error);
+        alert("Internet connection check karein.");
+    })
+    .finally(() => {
+        btn.innerHTML = "Send Message";
     });
+});
+const navToggle = document.getElementById('navToggle');
+const nav = document.getElementById('nav');
 
-    // sample search function
-    function searchSample(){
-      alert('Thanks — we will help you search services shortly!');
-    }
+// Button click par menu khulega/band hoga
+navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    nav.classList.toggle('open');
+});
 
-    // contact form simulation
-    function submitContact(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if(!name || !message){
-        alert('Please fill required fields.');
-        return;
-      }
-      console.log('Contact:', {
-        name, email: document.getElementById('email').value,
-        message
-      });
-      alert('Your message has been sent — we will reply within 24 hours.');
-      document.getElementById('contactForm').reset();
-    }
-  </script>
+// Kahin bhi bahar click karne par menu band ho jaye
+document.addEventListener('click', () => {
+    nav.classList.remove('open');
+});
 
 </body>
 </html>
-
 
 
 
