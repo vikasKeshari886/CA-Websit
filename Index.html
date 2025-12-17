@@ -193,33 +193,43 @@
 <!-- Hidden checkbox -->
 <input type="checkbox" id="popup-toggle" hidden>
 
-<!-- Form -->
-<div class="contact-form-wrap">
-  <h2>Send a Query</h2>
-  <p>Fill in your details and we will get back to you.</p>
+<!-- FORM START -->
+<form action="#" method="post">
 
-  <input type="text" placeholder="Full Name" required>
-  <input type="email" placeholder="Email" required>
-  <textarea placeholder="Your Query" required></textarea>
+  <!-- Hidden checkbox (popup control) -->
+  <input type="checkbox" id="popup-toggle" hidden>
 
-  <!-- Button as label -->
-  <label for="popup-toggle" class="btn primary" style="cursor:pointer;">
-    Send Message
-  </label>
-</div>
+  <div class="contact-form-wrap">
+    <h2>Send a Query</h2>
+    <p>Fill in your details and we will get back to you.</p>
 
-<!-- Thank You Popup -->
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Your Query" required></textarea>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn primary">
+      Send Message
+    </button>
+  </div>
+
+</form>
+<!-- FORM END -->
+
+
+<!-- Thank You Popup (FORM KE BAHAR) -->
 <div class="thankyou-popup">
   <div class="thankyou-box">
     <h3>Thank You 🙌</h3>
-    <p>Your message has been sent successfully.<br>
-       We will contact you soon.</p>
+    <p>
+      Your message has been sent successfully.<br>
+      We will contact you soon.
+    </p>
 
-    <label for="popup-toggle" class="popup-btn">
-      OK
-    </label>
+    <label for="popup-toggle" class="popup-btn">OK</label>
   </div>
 </div>
+
 
 
     <!-- Map -->
@@ -299,5 +309,6 @@
 
 </body>
 </html>
+
 
 
