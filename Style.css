@@ -1,7 +1,5 @@
-@media (min-width:320px)
+@media (min-width:100px)
 {
-
-
 
 /* ---------- BASE RESET ---------- */
 html {
@@ -1025,6 +1023,7 @@ html, body{
     }
 }
 }
+
 
 
 
