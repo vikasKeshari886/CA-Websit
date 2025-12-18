@@ -99,9 +99,9 @@ img, iframe { max-width: 100%; height: auto; }
     @media (max-width: 768px) {
     /* Menu ko right side corner mein fix karna */
     .nav {
-        right: 15px !important;
+        right: 25px !important;
         left: auto !important;
-        width: 250px !important;
+        width: 320px !important;
     }
 
     /* WhatsApp button ko right side corner mein fix karna */
@@ -152,4 +152,5 @@ img, iframe { max-width: 100%; height: auto; }
     .hero-search { flex-direction: column !important; }
     .stats { grid-template-columns: 1fr 1fr !important; }
 }
+
 
