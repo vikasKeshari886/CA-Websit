@@ -1,3 +1,8 @@
+@media (min-width:320px)
+{
+
+
+
 /* ---------- BASE RESET ---------- */
 html {
   scroll-behavior: smooth;
@@ -1018,6 +1023,7 @@ html, body{
         height: 50px;
         bottom: 20px;
     }
+}
 }
 
 
