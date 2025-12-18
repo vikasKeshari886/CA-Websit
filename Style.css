@@ -139,3 +139,96 @@ img, iframe { max-width: 100%; height: auto; }
     .stats { grid-template-columns: 1fr 1fr; } /* 2 per row for very small phones */
     .whatsapp-float { bottom: 80px; width: 50px; height: 50px; }
 }
+/* ================= THE FINAL MOBILE REPAIR ================= */
+
+@media (max-width: 768px) {
+    /* 1. Hero Layout: Image upar, Text niche */
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        margin-top: 80px !important;
+        padding: 20px !important;
+        text-align: center !important;
+        gap: 20px !important;
+    }
+
+    /* 2. Logo/Image Adjustment */
+    .hero-right {
+        order: -1 !important; /* Image ko sabse upar laane ke liye */
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        min-height: auto !important;
+    }
+
+    .hero-art {
+        width: 180px !important; /* Logo ka size mobile ke liye */
+        height: auto !important;
+        margin: 0 auto !important;
+        padding: 10px !important;
+        background: transparent !important;
+        border: none !important;
+    }
+
+    /* 3. Text Sizes */
+    .hero-title {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .hero-sub {
+        font-size: 14px !important;
+        padding: 0 10px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 4. Search Bar Fix (Ek line mein) */
+    .hero-search {
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        gap: 5px !important;
+    }
+
+    .hero-search input {
+        flex: 1 !important;
+        padding: 10px !important;
+        font-size: 13px !important;
+    }
+
+    /* 5. Stats Grid (3 columns mein set karne ke liye) */
+    .stats {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
+        margin-top: 30px !important;
+        width: 100% !important;
+    }
+
+    .stat {
+        min-width: 0 !important;
+        padding: 10px 5px !important;
+        background: rgba(255,255,255,0.05) !important;
+    }
+
+    .stat-num { font-size: 14px !important; }
+    .stat-label { font-size: 9px !important; }
+
+    /* 6. Contact & Services (Single Column) */
+    .services-container, .contact-grid, .info-section {
+        grid-template-columns: 1fr !important;
+        padding: 10px !important;
+    }
+
+    /* Extra Clutter Hide Karein */
+    .glass-card, .neon-shapes {
+        display: none !important;
+    }
+}
+
+/* For Very Small Phones (iPhone SE etc) */
+@media (max-width: 380px) {
+    .hero-search { flex-direction: column !important; }
+    .stats { grid-template-columns: 1fr 1fr !important; }
+}
